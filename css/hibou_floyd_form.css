@@ -1,14 +1,15 @@
+
 .floyd_bg{
 		background: url(../images/floyd_bg.png) ;
 		background-color: #7a7c63;
 		padding: 50px;
-		
+		width: 932px;
 }
 
 .insideWrapperLbForm-floyd{
 	background: #dbd9d6;
 	border:8px #9b9d8a solid;
-	ma
+	padding: 20px;
 	
 
 }
@@ -27,4 +28,13 @@
 }
 label{
 	color:#000000;
+}
+
+
+/*FOUNDATION OVERIDE*/
+
+img, object, embed {
+max-width: 100%;
+
+height: auto;
 }

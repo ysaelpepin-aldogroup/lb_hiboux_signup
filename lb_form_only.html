@@ -287,7 +287,90 @@
 		      
 			  		<option value="YT"   >Yukon</option>
 		    </select>
-	
+	<script>
+	function countryOnChange(id)
+	{
+
+		var oChild=$('stateid');
+			if (oChild)
+			$('stateProv').removeChild(oChild);
+
+		if(id !='CA' || id !='UK' || id!='US')
+			$('provCode').style.display ='none';
+
+		if(id =='CA')
+		   {
+		    $('provCode').style.display ='block';
+			$('state').innerHTML='province';
+			$('zip').innerHTML='postal code';
+			getState(id,'eng');
+		   }
+		if(id =='US')
+			{
+			$('provCode').style.display ='block';
+			$('state').innerHTML='province';
+			$('zip').innerHTML='zip code';
+			getState(id,'eng');
+			}
+		if(id =='UK')
+		   {
+		   	$('provCode').style.display ='block';
+			$('state').innerHTML='county';
+			$('zip').innerHTML='post code';
+
+
+			element = document.createElement("input");
+			element.setAttribute("id", "stateid");
+    		element.setAttribute("name", "stateid");
+    		element.setAttribute("type", "text");
+    		element.setAttribute("className","textfield")
+    		steteobj=$('stateProv');
+   			steteobj.appendChild(element);
+
+		   }
+
+	}
+
+	function getState(countryID,languageID)
+	{
+
+		myselect = document.createElement("select");
+		myselect.id = 'stateid';
+		myselect.name = 'stateid';
+		opt1 = document.createElement('OPTION');
+		opt1.innerHTML = 'select one';
+		opt1.value = '';
+		myselect.appendChild(opt1);
+		$('stateProv').appendChild(myselect);
+
+		_selObj = createResultStructure('stateid','NAME','STATE_ID');
+		DWREngine._execute(_cfCatLevelsLocation, null, 'callGetStates',countryID,languageID,updateSelect_result);
+	}
+
+
+	function updateSelect_result(result)
+	{
+		updateSelect(result);
+		stateElem=$('stateid');
+		for (var i=0; i <= stateElem.options.length-1;i++)
+			{
+			  if(stateElem.options[i].value =='')
+			    {
+				    try
+				    {
+				  	stateElem.options[i].selected=true;
+				    }
+				    catch(err){
+				   		 stateElem.options[i].setAttribute('selected',true);
+				    	 }
+			    }
+			}
+
+	}
+
+
+	countryOnChange($('countryID').value);
+</script>
 				 </div>
 
 			   </div>
