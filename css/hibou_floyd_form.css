@@ -1,15 +1,22 @@
 
-.floyd_bg{
-		background: url(../images/floyd_bg.png) ;
-		background-color: #7a7c63;
-		padding: 50px;
+.main_form_ct{
+		
 		width: 932px;
+}
+
+.floyd_bg{
+	background: url(../images/floyd_bg.png) ;
+	background-color: #7a7c63;
+}
+
+.height_55{
+	height: 55px;
 }
 
 .insideWrapperLbForm-floyd{
 	background: #dbd9d6;
-	border:8px #9b9d8a solid;
-	padding: 20px;
+	-border:8px #9b9d8a solid;
+	-padding: 20px;
 	
 
 }
